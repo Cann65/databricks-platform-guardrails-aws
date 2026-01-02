@@ -1,0 +1,5 @@
+{
+  "enableIpAccessLists": "true",
+  "enableTokensConfig": "true",
+  "maxTokenLifetimeDays": "90"
+}

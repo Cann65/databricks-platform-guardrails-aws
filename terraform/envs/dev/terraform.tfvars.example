@@ -1,0 +1,31 @@
+# Example terraform.tfvars file
+# Copy to terraform.tfvars and customize
+
+# AWS Configuration
+aws_region = "us-east-1"
+
+# S3 bucket must be globally unique
+s3_bucket_name = "databricks-dev-storage-REPLACE_WITH_UNIQUE_SUFFIX"
+
+# IAM Instance Profile
+instance_profile_role_name = "databricks-dev-instance-profile"
+
+# Tagging
+owner_tag       = "platform-team"
+cost_center_tag = "data-platform"
+
+# Cluster Guardrails
+max_workers                 = 8
+max_autotermination_minutes = 15
+default_node_type           = "i3.xlarge"
+
+# Cost control: restrict to smaller node types
+allowed_node_types = [
+  "i3.xlarge",
+  "i3.2xlarge",
+  "m5d.large",
+  "m5d.xlarge"
+]
+
+# Demo job (disabled by default to avoid costs)
+enable_demo_job = false

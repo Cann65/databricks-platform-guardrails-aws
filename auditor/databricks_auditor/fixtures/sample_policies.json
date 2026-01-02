@@ -1,0 +1,11 @@
+{
+  "policies": [
+    {
+      "policy_id": "mock-policy-001",
+      "name": "guardrails-default",
+      "definition": "{\"autoscale.min_workers\": {\"type\": \"range\", \"minValue\": 1, \"maxValue\": 8}, \"autoscale.max_workers\": {\"type\": \"range\", \"minValue\": 1, \"maxValue\": 8}, \"num_workers\": {\"type\": \"range\", \"minValue\": 1, \"maxValue\": 8}, \"autotermination_minutes\": {\"type\": \"range\", \"minValue\": 10, \"maxValue\": 15, \"defaultValue\": 15}, \"node_type_id\": {\"type\": \"allowlist\", \"values\": [\"i3.xlarge\", \"i3.2xlarge\", \"m5d.large\", \"m5d.xlarge\"], \"defaultValue\": \"i3.xlarge\"}, \"driver_node_type_id\": {\"type\": \"allowlist\", \"values\": [\"i3.xlarge\", \"i3.2xlarge\", \"m5d.large\", \"m5d.xlarge\"], \"defaultValue\": \"i3.xlarge\"}, \"custom_tags.owner\": {\"type\": \"fixed\", \"value\": \"platform-team\"}, \"custom_tags.cost_center\": {\"type\": \"unlimited\", \"defaultValue\": \"data-platform\"}, \"custom_tags.env\": {\"type\": \"fixed\", \"value\": \"dev\"}}",
+      "description": "Platform guardrails policy: enforces cost controls, auto-termination, and required tagging",
+      "created_at_timestamp": 1640000000000
+    }
+  ]
+}

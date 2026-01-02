@@ -1,0 +1,19 @@
+{
+  "clusters": [
+    {
+      "cluster_id": "mock-cluster-job-001",
+      "cluster_name": "etl-job-cluster",
+      "state": "RUNNING",
+      "cluster_source": "JOB",
+      "spark_version": "13.3.x-scala2.12",
+      "node_type_id": "i3.xlarge",
+      "num_workers": 4,
+      "autotermination_minutes": 15,
+      "custom_tags": {
+        "owner": "platform-team",
+        "cost_center": "data-platform",
+        "env": "dev"
+      }
+    }
+  ]
+}

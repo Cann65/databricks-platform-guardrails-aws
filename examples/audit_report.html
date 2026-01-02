@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Databricks Compliance Audit Report</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 1200px; margin: 40px auto; padding: 20px; }
+h1 { color: #333; }
+.header { background: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 30px; }
+.summary { display: flex; gap: 20px; margin: 20px 0; }
+.summary-card { flex: 1; padding: 20px; border-radius: 5px; text-align: center; }
+.summary-card h3 { margin: 0; font-size: 32px; }
+.summary-card p { margin: 5px 0 0 0; color: #666; }
+.findings { margin-top: 30px; }
+.finding { padding: 15px; margin: 10px 0; border-left: 4px solid; border-radius: 3px; background: #f8f9fa; }
+.finding-ok { border-color: #28a745; }
+.finding-warn { border-color: #ffc107; }
+.finding-fail { border-color: #dc3545; }
+.finding h4 { margin: 0 0 10px 0; }
+.severity { display: inline-block; padding: 2px 8px; border-radius: 3px; color: white; font-size: 12px; font-weight: bold; }
+pre { background: #f4f4f4; padding: 10px; border-radius: 3px; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h1>Databricks Compliance Audit Report</h1>
+<div class='header'>
+<p><strong>Timestamp:</strong> 2026-01-01T23:53:49.510562Z</p>
+<p><strong>Environment:</strong> DRY-RUN</p>
+<p><strong>Mode:</strong> DRY-RUN (using fixtures)</p>
+</div>
+<h2>Summary</h2>
+<div class='summary'>
+<div class='summary-card' style='background: #28a74520;'>
+<h3>6</h3><p>OK</p></div>
+<div class='summary-card' style='background: #ffc10720;'>
+<h3>1</h3><p>WARN</p></div>
+<div class='summary-card' style='background: #dc354520;'>
+<h3>0</h3><p>FAIL</p></div>
+</div>
+<h2>Findings</h2>
+<div class='findings'>
+<div class='finding finding-ok'>
+<h4>cluster_policy_exists <span class='severity' style='background: #28a745;'>OK</span></h4>
+<p>Guardrails cluster policy 'guardrails-default' exists</p>
+<pre>{
+  "policy_id": "mock-policy-001"
+}</pre>
+</div>
+<div class='finding finding-ok'>
+<h4>auto_termination_enforced <span class='severity' style='background: #28a745;'>OK</span></h4>
+<p>Auto-termination enforced at 15 minutes (≤15)</p>
+<pre>{
+  "max_value": 15
+}</pre>
+</div>
+<div class='finding finding-ok'>
+<h4>max_workers_enforced <span class='severity' style='background: #28a745;'>OK</span></h4>
+<p>Max workers enforced at 8 (≤8)</p>
+<pre>{
+  "max_values": [
+    8,
+    8
+  ]
+}</pre>
+</div>
+<div class='finding finding-ok'>
+<h4>required_tags_enforced <span class='severity' style='background: #28a745;'>OK</span></h4>
+<p>All required tags enforced: owner, cost_center, env</p>
+<pre>{
+  "tags": {
+    "owner": {
+      "type": "fixed",
+      "value": "platform-team"
+    },
+    "cost_center": {
+      "type": "unlimited",
+      "defaultValue": "data-platform"
+    },
+    "env": {
+      "type": "fixed",
+      "value": "dev"
+    }
+  }
+}</pre>
+</div>
+<div class='finding finding-warn'>
+<h4>no_all_purpose_clusters <span class='severity' style='background: #ffc107;'>WARN</span></h4>
+<p>DRY-RUN: Cannot validate cluster types from fixture data</p>
+<pre>{
+  "cluster_count": 1
+}</pre>
+</div>
+<div class='finding finding-ok'>
+<h4>platform_secret_scope_exists <span class='severity' style='background: #28a745;'>OK</span></h4>
+<p>Platform secret scope 'platform' exists</p>
+<pre>{
+  "scope_name": "platform",
+  "backend_type": "DATABRICKS"
+}</pre>
+</div>
+<div class='finding finding-ok'>
+<h4>workspace_configuration_baseline <span class='severity' style='background: #28a745;'>OK</span></h4>
+<p>Workspace configuration retrieved successfully</p>
+<pre>{
+  "config_count": 3,
+  "mode": "DRY-RUN"
+}</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-01-01T23:57:17.665564Z",
+  "environment": "DRY-RUN",
+  "dry_run": true,
+  "findings": [
+    {
+      "check_name": "cluster_policy_exists",
+      "severity": "OK",
+      "message": "Guardrails cluster policy 'guardrails-default' exists",
+      "details": {
+        "policy_id": "mock-policy-001"
+      }
+    },
+    {
+      "check_name": "auto_termination_enforced",
+      "severity": "OK",
+      "message": "Auto-termination enforced at 15 minutes (≤15)",
+      "details": {
+        "max_value": 15
+      }
+    },
+    {
+      "check_name": "max_workers_enforced",
+      "severity": "OK",
+      "message": "Max workers enforced at 8 (≤8)",
+      "details": {
+        "max_values": [
+          8,
+          8
+        ]
+      }
+    },
+    {
+      "check_name": "required_tags_enforced",
+      "severity": "OK",
+      "message": "All required tags enforced: owner, cost_center, env",
+      "details": {
+        "tags": {
+          "owner": {
+            "type": "fixed",
+            "value": "platform-team"
+          },
+          "cost_center": {
+            "type": "unlimited",
+            "defaultValue": "data-platform"
+          },
+          "env": {
+            "type": "fixed",
+            "value": "dev"
+          }
+        }
+      }
+    },
+    {
+      "check_name": "no_all_purpose_clusters",
+      "severity": "WARN",
+      "message": "DRY-RUN: Cannot validate cluster types from fixture data",
+      "details": {
+        "cluster_count": 1
+      }
+    },
+    {
+      "check_name": "platform_secret_scope_exists",
+      "severity": "OK",
+      "message": "Platform secret scope 'platform' exists",
+      "details": {
+        "scope_name": "platform",
+        "backend_type": "DATABRICKS"
+      }
+    },
+    {
+      "check_name": "workspace_configuration_baseline",
+      "severity": "OK",
+      "message": "Workspace configuration retrieved successfully",
+      "details": {
+        "config_count": 3,
+        "mode": "DRY-RUN"
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "ok": 6,
+    "warn": 1,
+    "fail": 0
+  }
+}
