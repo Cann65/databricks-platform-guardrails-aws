@@ -55,6 +55,7 @@ htmlcov/
 *~
 .DS_Store
 
+
 # Generated reports (runtime only)
 reports/
 reports/**
