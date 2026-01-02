@@ -67,3 +67,45 @@ variable "enable_demo_job" {
   type        = bool
   default     = false
 }
+
+variable "spark_version" {
+  description = "Spark runtime version for Databricks jobs"
+  type        = string
+  default     = "13.3.x-scala2.12"
+}
+
+variable "enable_workload_job" {
+  description = "Whether to create the Databricks workload job"
+  type        = bool
+  default     = false
+}
+
+variable "workload_job_name" {
+  description = "Name of the Databricks workload job"
+  type        = string
+  default     = "guardrails-demo-pipeline"
+}
+
+variable "notebook_base_path" {
+  description = "Workspace path for workload notebooks (e.g., /Repos/<user>/databricks-platform-guardrails-aws/workload/notebooks)"
+  type        = string
+  default     = "/Repos/<user>/databricks-platform-guardrails-aws/workload/notebooks"
+}
+
+variable "output_base_path" {
+  description = "DBFS base path for Delta outputs"
+  type        = string
+  default     = "dbfs:/tmp/guardrails_demo"
+}
+
+variable "workload_job_workers" {
+  description = "Worker count for workload job cluster"
+  type        = number
+  default     = 2
+}
+
+variable "workload_autotermination_minutes" {
+  description = "Auto-termination timeout for workload job cluster"
+  type        = number
+  default     = 15
+}

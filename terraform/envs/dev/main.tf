@@ -48,3 +48,20 @@ module "databricks_guardrails" {
   default_cost_center_tag     = var.cost_center_tag
   enable_demo_job             = var.enable_demo_job
 }
+
+# Databricks workload job (optional)
+module "databricks_jobs" {
+  source = "../../modules/databricks_jobs"
+
+  enable_workload_job = var.enable_workload_job
+  job_name            = var.workload_job_name
+  notebook_base_path  = var.notebook_base_path
+  output_base_path    = var.output_base_path
+  cluster_policy_id   = module.databricks_guardrails.cluster_policy_id
+  spark_version       = var.spark_version
+  node_type_id        = var.default_node_type
+  num_workers         = var.workload_job_workers
+  owner_tag           = var.owner_tag
+  cost_center_tag     = var.cost_center_tag
+  environment         = "dev"
+}

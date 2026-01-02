@@ -22,3 +22,13 @@ output "secret_scope_name" {
   description = "Name of the platform secret scope"
   value       = module.databricks_guardrails.secret_scope_name
 }
+
+output "workload_job_id" {
+  description = "ID of the workload job (if enabled)"
+  value       = var.enable_workload_job ? module.databricks_jobs.job_id : null
+}
+
+output "workload_job_name" {
+  description = "Name of the workload job"
+  value       = module.databricks_jobs.job_name
+}

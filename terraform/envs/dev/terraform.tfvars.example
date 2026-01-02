@@ -6,6 +6,7 @@ aws_region = "us-east-1"
 
 # S3 bucket must be globally unique
 s3_bucket_name = "databricks-dev-storage-REPLACE_WITH_UNIQUE_SUFFIX"
+s3_force_destroy = true
 
 # IAM Instance Profile
 instance_profile_role_name = "databricks-dev-instance-profile"
@@ -29,3 +30,15 @@ allowed_node_types = [
 
 # Demo job (disabled by default to avoid costs)
 enable_demo_job = false
+
+# Spark runtime for jobs
+spark_version = "13.3.x-scala2.12"
+
+# Workload job (optional)
+enable_workload_job             = false
+workload_job_name               = "guardrails-demo-pipeline"
+# Update notebook_base_path after importing repo into Databricks Repos or /Shared
+notebook_base_path              = "/Repos/<user>/databricks-platform-guardrails-aws/workload/notebooks"
+output_base_path                = "dbfs:/tmp/guardrails_demo"
+workload_job_workers            = 2
+workload_autotermination_minutes = 15
