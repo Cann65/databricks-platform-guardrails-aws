@@ -1,6 +1,6 @@
 # Databricks Auditor
 
-Python-based compliance auditor for Databricks workspaces with dry-run support.
+Supporting compliance/guardrails check for the Databricks workload (dry-run friendly).
 
 ## Overview
 

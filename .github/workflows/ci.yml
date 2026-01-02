@@ -33,7 +33,7 @@ jobs:
       - name: Run pytest
         run: |
           cd auditor
-          pytest -v
+          PYTHONPATH=.. pytest -v
 
   terraform-checks:
     name: Terraform Format & Validate

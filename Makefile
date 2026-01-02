@@ -57,7 +57,7 @@ audit:
 	cd $(AUDITOR_DIR) && python -m databricks_auditor.cli audit --out ../reports --format html,md,json
 
 test:
-	cd $(AUDITOR_DIR) && pytest
+	cd $(AUDITOR_DIR) && PYTHONPATH=.. pytest
 
 lint:
 	cd $(AUDITOR_DIR) && ruff check .
