@@ -46,7 +46,6 @@ resource "databricks_job" "demo_compliance_check" {
       node_type_id  = var.default_node_type
       policy_id     = databricks_cluster_policy.guardrails_default.id
 
-      autotermination_minutes = var.max_autotermination_minutes
 
       custom_tags = {
         owner       = var.default_owner_tag
