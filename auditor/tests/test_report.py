@@ -1,7 +1,15 @@
 """Tests for report generation."""
 
 
-from databricks_auditor.report import AuditReport, Finding, Severity
+from databricks_auditor.report import (
+    AuditReport,
+    Finding,
+    Severity,
+    save,
+    to_html,
+    to_json,
+    to_markdown,
+)
 
 
 def test_finding_creation():
@@ -98,7 +106,7 @@ def test_json_export():
     )
     report = AuditReport.create([finding], dry_run=True)
 
-    json_output = report.to_json()
+    json_output = to_json(report)
     assert "test" in json_output
     assert "OK" in json_output
     assert "DRY-RUN" in json_output
@@ -111,7 +119,7 @@ def test_markdown_export():
     )
     report = AuditReport.create([finding], dry_run=True)
 
-    md_output = report.to_markdown()
+    md_output = to_markdown(report)
     assert "# Databricks Compliance Audit Report" in md_output
     assert "test" in md_output
     assert "OK" in md_output
@@ -124,7 +132,7 @@ def test_html_export():
     )
     report = AuditReport.create([finding], dry_run=True)
 
-    html_output = report.to_html()
+    html_output = to_html(report)
     assert "<!DOCTYPE html>" in html_output
     assert "test" in html_output
     assert "OK" in html_output
@@ -137,7 +145,7 @@ def test_save_reports(tmp_path):
     )
     report = AuditReport.create([finding], dry_run=True)
 
-    report.save(tmp_path, ["json", "md", "html"])
+    save(report, tmp_path, ["json", "md", "html"])
 
     assert (tmp_path / "audit_report.json").exists()
     assert (tmp_path / "audit_report.md").exists()

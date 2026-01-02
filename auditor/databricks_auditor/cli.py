@@ -14,7 +14,7 @@ from databricks_auditor.checks import (
 )
 from databricks_auditor.client import DatabricksClient
 from databricks_auditor.config import AuditorConfig
-from databricks_auditor.report import AuditReport, Finding
+from databricks_auditor.report import AuditReport, Finding, save
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -101,7 +101,7 @@ def main():
     # Save reports
     output_dir = Path(args.out)
     formats = [fmt.strip() for fmt in args.format.split(",")]
-    report.save(output_dir, formats)
+    save(report, output_dir, formats)
 
     # Print summary (avoid emojis for Windows compatibility)
     print("\n" + "=" * 60)
