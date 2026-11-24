@@ -51,7 +51,7 @@ flowchart LR
   ```
 
 ## Evidence (what to show)
-- **CI run evidence:** GitHub Actions runs the Python checks and publishes a report generated from dry-run fixtures. Running the Spark workload requires a Databricks workspace.  
+- **CI run evidence:** GitHub Actions runs the Python checks and publishes a report generated from dry-run fixtures. Running the Spark workload requires a Databricks workspace.
 - **HTML report proof:** `examples/audit_report.html` (pre-generated from dry-run) demonstrates the compliance report artifact. Explain that WARNs clear once pointed at a real workspace.
 
 ## Trade-offs
