@@ -9,6 +9,19 @@ Primary goal: a real Databricks workload (bronze → silver → gold Delta pipel
 - **Compliance check:** Python auditor (dry-run by default) that reports WARN/FAIL/OK and exports HTML/MD/JSON.
 - **CI/CD:** GitHub Actions runs lint + tests + Terraform fmt/validate + dry-run audit artifact.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    Source["Synthetic orders"] --> Bronze["Bronze Delta"]
+    Bronze --> Silver["Validated Silver Delta"]
+    Silver --> Gold["Gold aggregates and SQL analytics"]
+    Policy["Optional Terraform job and cluster policy"] --> Bronze
+    Policy --> Silver
+    Policy --> Gold
+    Auditor["Python auditor"] --> Controls["Workspace settings, clusters, and secret scopes"]
+```
+
 ## Run the workload in Databricks
 1) **Import repo into Databricks Repos** (or upload notebooks to `/Shared/guardrails_demo`).  
 2) **Run notebooks manually** (widgets default to `dbfs:/tmp/guardrails_demo`):  
@@ -38,7 +51,7 @@ Primary goal: a real Databricks workload (bronze → silver → gold Delta pipel
   ```
 
 ## Evidence (what to show)
-- **CI run proof:** add your CI screenshot to `examples/pipeline_run_screenshot.png` (placeholder file is present). This shows the pipeline + checks ran in GitHub Actions.  
+- **CI run evidence:** GitHub Actions runs the Python checks and publishes a report generated from dry-run fixtures. Running the Spark workload requires a Databricks workspace.  
 - **HTML report proof:** `examples/audit_report.html` (pre-generated from dry-run) demonstrates the compliance report artifact. Explain that WARNs clear once pointed at a real workspace.
 
 ## Trade-offs
